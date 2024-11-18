@@ -2,6 +2,7 @@
 .settings/
 .classpath
 .project
+.metadata
 
 # Compiled Java class files
 /bin/*
