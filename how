@@ -1,0 +1,7 @@
+how to upload 
+git add .
+git commit -m "Initial commit"
+git push origin main
+how to downlod
+git pull origin main
+
