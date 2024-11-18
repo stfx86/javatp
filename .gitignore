@@ -1,9 +1,10 @@
 # Eclipse IDE
-.settings/*
-.classpath/*
-.project/*
-.metadata/*
+/.settings/
+/.classpath
+/.project
+/.metadata/
 
 # Compiled Java class files
-/bin/*
+/bin/
+
 
