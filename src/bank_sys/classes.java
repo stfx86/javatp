@@ -1,49 +1,25 @@
 package bank_sys;
 
             
-class Client {
-     protected  String nom ;   // protected pour la securty .
-     protected String prenom;
-     protected int code;
-     protected String ville ;
-      public Client(){
-
-      }
-      public Client(String nom ,String Prenom ,int code ,String ville)
-      {this.nom =nom ;
-        this.prenom ;
-        this.code =code ;
-        this.ville =ville ;
-
-      }
-
+class client {
+    String nom,prenom;
+    int code;
     /*
      * methods to later 
      */
 
     
 }
-  classe Directeur 
-  {  
-    
-
-}
-  class Compte{
-    String type ;
-    int num ;
-    int code  ;
-    public Compte(String t ,int n ,int c){
-        this.type =t ;
-        this.num =n ;
-        ths.c = c ;
-    }
-
-  }
 /**
- * classes
+ *
  */ 
+<<<<<<< HEAD
   class employe extends client {
          
+=======
+class employe extends client {
+          String ville ;
+>>>>>>> 6aac9c07f86ce9af4f03435414ceec7faa418410
       
 
 
