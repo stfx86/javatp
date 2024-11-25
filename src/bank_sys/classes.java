@@ -43,7 +43,7 @@ class Client {
  * classes
  */ 
   class employe extends client {
-          String ville ;
+         
       
 
 
