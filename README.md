@@ -1,1 +1,1 @@
-there is no muh to say here , this isjust  a simple banking system implementation .
+there is no muh to say here , this is just  a simple banking system implementation .

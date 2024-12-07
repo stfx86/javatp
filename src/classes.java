@@ -10,7 +10,8 @@ class Client {
 
       }
       public Client(String nom ,String Prenom ,int code ,String ville)
-      {this.nom =nom ;
+      {
+        this.nom =nom ;
         this.prenom ;
         this.code =code ;
         this.ville =ville ;
@@ -39,15 +40,11 @@ class Client {
     }
 
   }
-/**
- * classes
+/** *
  */ 
-  class employe extends client {
+  class employe extends Client {
          
       
 
 
-
-
-    
-}
+CC    
