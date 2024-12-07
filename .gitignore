@@ -3,7 +3,7 @@
 /.classpath
 /.project
 /.metadata/
-
+/Makefile/
 # Compiled Java class files
 /bin/
 
