@@ -1,6 +1,7 @@
 import java.util.Arrays;
 
 public class Client {
+    
 
 
     private String nom ;
@@ -83,7 +84,7 @@ public class Client {
 
     //MENEU :liste of client functions 
     public void menu()
-    { 
+    {       
         System.out.println("1 :");
         System.out.println("1 :");
         System.out.println("1 :");
