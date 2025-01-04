@@ -12,12 +12,19 @@ public class Client {
     static int nombreClients=0;
     private Compte[] comptes =null;
     private int nombreCompte =0 ;
-    private Scanner scanner =new  Scanner(System.in);
+    private Scanner scanner = new  Scanner(System.in);
 
 
     public Client()
     {
-        this.code =nombreClients++ ;
+        this.code = nombreClients++ ;
+
+    }
+    public Client(String nom)
+    
+    {
+        this.nom=nom;
+        this.code = nombreClients++ ;
 
     }
      public Client(String nom ,String prenom ,String ville){
@@ -66,6 +73,7 @@ public class Client {
     }
     public String getVille() {
         return this.ville;
+
     }
 
     public void setVille(String ville) {
@@ -98,7 +106,8 @@ public class Client {
          return;  
         }
         System.out.println("--choose an account");
-        for (Compte compte : comptes) System.out.println(compte.getNumeroCompte());
+        for (Compte compte : comptes)if(compte==null) continue;
+        else System.out.println(compte.getNumeroCompte());
         System.out.print(":");
         
         acount =scanner.nextInt();
@@ -127,12 +136,13 @@ public class Client {
 
 
     //MENEU :liste of client functions 
-    public void menu()
+    
+    public void menu(String label)
     { 
         int k=1;
         
         while (k!=0) {
-            System.out.println("--------------:client Code "+this.code+":----------------");
+            System.out.println(label);
             System.out.println("--options");
             System.out.println("1)deposit ");
             System.out.println("2)withdraw ");
@@ -160,7 +170,7 @@ public class Client {
                 case 3:
                 System.out.println("your balnaces ");
                 for (Compte compte : comptes) {
-                    System.out.println("account Number "+compte.getNumeroCompte()+": "+compte.getSolde());
+                    System.out.println("account Number "+compte.getNumeroCompte()+": balance "+compte.getSolde());
                     
                 }
                 break;
@@ -168,6 +178,8 @@ public class Client {
                  System.out.println(this);
 
                 break;
+                case 0:
+                 break;
                 default:
                     System.out.println("not an option!! , try again ");
             }
