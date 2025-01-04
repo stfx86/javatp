@@ -43,10 +43,10 @@ public class Client {
         this.nombreCompte = nombreCompte;
     }
     
-    public Compte[] getCompte() {
+    public Compte[] getComptes() {
         return this.comptes;
     }
-    public void setCompte(Compte[] compte) {
+    public void setComptes(Compte[] compte) {
         this.comptes = compte;
     }
    
@@ -78,7 +78,50 @@ public class Client {
         return "Client [nom=" + nom + ", prenom=" + prenom + ", ville=" + ville + ", code=" + code + ", compte="
                 + Arrays.toString(comptes)  +"]";
     }
-    
+    private void transaction(int typeTransaction){
+
+        int acount;
+        float amount; 
+
+        if (this.comptes==null) {
+            System.out.println("--you dont have an account :-( ");
+            return;
+            
+        }
+        
+        //enter the amount 
+        System.out.println("--enter the amount");
+        System.out.print(":");
+        amount=scanner.nextFloat();
+        if (amount<0) {
+         System.out.println("--invalid amount ");
+         return;  
+        }
+        System.out.println("--choose an account");
+        for (Compte compte : comptes) System.out.println(compte.getNumeroCompte());
+        System.out.print(":");
+        
+        acount =scanner.nextInt();
+        
+        
+        for (Compte compte : comptes) {
+            if (compte.getNumeroCompte()==acount){ 
+                if(typeTransaction==1) compte.verser(amount);else compte.retirer(amount); 
+                amount=-1;
+            return;}}
+         if(amount!=-1   ){System.out.println("--invalid option!!!");return;}
+         return;
+
+
+
+
+
+
+
+
+
+
+    }
     
     
 
@@ -89,31 +132,44 @@ public class Client {
         int k=1;
         
         while (k!=0) {
-            System.out.println("                                client Code :"+this.code);
-            System.out.println("options");
-            System.out.print("/1:verser");
-            System.out.print("/2:");
-            System.out.print("/3:");
-            System.out.print("/4:");
-            System.out.print("/5:");
+            System.out.println("--------------:client Code "+this.code+":----------------");
+            System.out.println("--options");
+            System.out.println("1)deposit ");
+            System.out.println("2)withdraw ");
+            System.out.println("3)check balanch ");
+            System.out.println("4)my-infos ");
+            System.out.println("0)quit ");
+            System.out.print(":");
             k=scanner.nextInt();
             
+          
+
 
             switch (k) {
+
+                //verser
                 case 1:
-                if (this.comptes==null) {
-                    System.out.println("you dont have an account :-( ");
-                    break;
+                transaction(1);
+                break;
+               
+
+                 case 2 :
+                 transaction(2);
+                 break;
+               
+                case 3:
+                System.out.println("your balnaces ");
+                for (Compte compte : comptes) {
+                    System.out.println("account Number "+compte.getNumeroCompte()+": "+compte.getSolde());
                     
                 }
-                System.out.println("choose an account");
-                for (Compte compte : comptes) System.out.println(compte.getNumeroCompte());
-                    
-                    break;
-            
-            
+                break;
+                case 4:
+                 System.out.println(this);
+
+                break;
                 default:
-                    break;
+                    System.out.println("not an option!! , try again ");
             }
 
 

@@ -1,7 +1,7 @@
 public class Compte {
     
    
-    static int nombreComptes=0;
+    static int nombreComptes=22;
     private float solde ;
     private int numeroCompte ;
     private String typeCompte="courant";
@@ -60,7 +60,7 @@ public class Compte {
     }
     public void verser(float solde){
         this.solde+=solde;
-        System.out.println("--"+solde+"has been diposit successfuly :-) ");
+        System.out.println("-"+solde+"has been diposit successfuly :-) ");
 
     }
     

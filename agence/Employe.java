@@ -57,7 +57,7 @@ public Client ajouterClient( )
         @Override
         public String toString() {
             return "Employe [nom=" + super.getNom() + ", prenom=" +super.getPrenom()  + ", ville=" + getVille()+ ", code=" + super.getCode() + ", compte="
-                + Arrays.toString(super.getCompte())  + "function = "+ this.function+"]" ;
+                + Arrays.toString(super.getComptes())  + "function = "+ this.function+"]" ;
         }
 
   public void menuEmploye()
