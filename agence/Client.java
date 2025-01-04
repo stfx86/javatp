@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Client {
     
@@ -9,9 +10,9 @@ public class Client {
     private String ville;
     private int code ;
     static int nombreClients=0;
-    private Compte[] comptes ;
+    private Compte[] comptes =null;
     private int nombreCompte =0 ;
-
+    private Scanner scanner =new  Scanner(System.in);
 
 
     public Client()
@@ -84,11 +85,43 @@ public class Client {
 
     //MENEU :liste of client functions 
     public void menu()
-    {       
-        System.out.println("1 :");
-        System.out.println("1 :");
-        System.out.println("1 :");
-        System.out.println("1 :");
+    { 
+        int k=1;
+        
+        while (k!=0) {
+            System.out.println("                                client Code :"+this.code);
+            System.out.println("options");
+            System.out.print("/1:verser");
+            System.out.print("/2:");
+            System.out.print("/3:");
+            System.out.print("/4:");
+            System.out.print("/5:");
+            k=scanner.nextInt();
+            
+
+            switch (k) {
+                case 1:
+                if (this.comptes==null) {
+                    System.out.println("you dont have an account :-( ");
+                    break;
+                    
+                }
+                System.out.println("choose an account");
+                for (Compte compte : comptes) System.out.println(compte.getNumeroCompte());
+                    
+                    break;
+            
+            
+                default:
+                    break;
+            }
+
+
+
+
+            
+        }    
+     
 
 
 

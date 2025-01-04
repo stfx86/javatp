@@ -37,9 +37,7 @@ public class Compte {
     public float getSolde() {
         return this.solde;
     }
-    private  void setSolde(float solde) {
-        this.solde = solde;
-    }
+   
     public int getNumeroCompte() {
         return this.numeroCompte;
     }
