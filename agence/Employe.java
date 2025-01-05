@@ -10,7 +10,7 @@ public class Employe extends Client
         this.function="not assined yet";
 
     }
-    public Employe(String nom  , String prenom ,String ville ,String function )
+    public Employe(String nom  , String prenom ,String ville , String function )
     {
       super(nom ,prenom ,ville) ;
       this.function=function ;
@@ -29,31 +29,51 @@ public Client rechercheMembre(int codeClient, Client[] tb){
 public void consulterClient(int codeClient ,Client[] tbClients)
 {
   Client c=rechercheMembre(codeClient, tbClients);
-  String label="--------------:inspected client Code "+c.getCode()+":----------------";
+  String label="--------------:inspected client Code "+
+     c.getCode()+":----------------";
   c.menu(label);
 
 }
 
-public Client[] supprimerClient(int num ,Client[] tbClients){
-    Client[] tbClient  = new Client[tbClients.length-1];
+public void supprimerMembre(int clientCode ,Client[] tbClients,String memberType){
+    
+  for (int i = 0; i < tbClients.length; i++) if (tbClients[i]==null)continue;
+  else  if (tbClients[i].getCode()==clientCode) {
 
-    return tbClient ;
+System.out.println("--member "+memberType +": "+tbClients[i].getCode()+
+              " has been deleted succesfully");
+       tbClients[i]=null;}  
+  
+  
+
+    
 } 
 // pour les prametre de cleint  , on les demende dans  la methode ces desus  :
 
-public Client ajouterClient()
+public Client[] ajouterMembre(Client []tabClients,String memberType)
  
    {
-
+    
     Scanner sc =new Scanner(System.in);
+    Client c  =new Client() ;
 
  
-     System.out.print("donner le nom de client ");
-     String nom = sc.next() ;
-     System.out.print("") ;
+     System.out.print("enter the name of the "+memberType);
+     System.out.print(":");
+     c.setPrenom(sc.next());
+     System.out.print("enter the last name of the "+memberType);
+     System.out.print(":");
+     c.setNom(sc.next());
+     System.out.print("enter the city  of the "+memberType);
+     System.out.print(":");
+     c.setVille(sc.next());
+     Client newtb[]=new Client[tabClients.length+1];
+     for (int i = 0; i < tabClients.length; i++) newtb[i]=tabClients[i];
+     newtb[tabClients.length]=c;
+     System.out.println("member "+memberType+" :"+c.getCode()+"has been added succesfully");
 
-    Client c  =new Client() ;
-    return c ;
+
+    return newtb;
     
 }
    public  void  ajouterCompte(Client client)
@@ -70,7 +90,8 @@ public Compte[] supprimerCompte(Compte c ,int numeroCompteSupprimer){
           }
         @Override
         public String toString() {
-            return "Employe [nom=" + super.getNom() + ", prenom=" +super.getPrenom()  + ", ville=" + getVille()+ ", code=" + super.getCode() + ", compte="
+            return "Employe [nom=" + super.getNom() + ", prenom=" +super.getPrenom()  + 
+            ", ville=" + getVille()+ ", code=" + super.getCode() + ", compte="
                 + Arrays.toString(super.getComptes())  + "function = "+ this.function+"]" ;
         }
 

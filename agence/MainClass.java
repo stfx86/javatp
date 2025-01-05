@@ -15,23 +15,10 @@ public class MainClass {
         Employe employe=new Employe();
         // clients[2]=null;
         Client cc=employe.rechercheMembre(clients[3].getCode(), clients);
-        System.out.println("client has bees found--:"+cc.getCode());
-        // for (Client client : clients) {
-        //     if (client.getCode()==clients[3].getCode()) {
-        //         client=null;
-                
-        //     }
-        // }
-        for(int i=0;i<clients.length;i++){
-            if (clients[i].getCode()==clients[3].getCode()) {
-                clients[i]=null;
-                
-            }
-
-        }
-        // clients[3]=null;
-        Client ccc=employe.rechercheMembre(clients[3].getCode(), clients);
-        System.out.println("client has bees found--:"+ccc.getCode());
+        clients=employe.ajouterMembre(clients, "cliensg");
+        System.out.println(clients[clients.length-1].getNom());
+       
+       
         
     }
     

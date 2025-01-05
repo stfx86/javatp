@@ -9,7 +9,7 @@ public class Client {
     private String prenom ;
     private String ville;
     private int code ;
-    static int nombreClients=0;
+    static  int nombreClients=0;
     private Compte[] comptes =null;
     private int nombreCompte =0 ;
     private Scanner scanner = new  Scanner(System.in);
