@@ -140,13 +140,14 @@ public class Client {
     public void menu(String label)
     { 
         int k=1;
+        String delemiter="---------------------------------------------------------------";
         
         while (k!=0) {
             System.out.println(label);
             System.out.println("--options");
             System.out.println("1)deposit ");
             System.out.println("2)withdraw ");
-            System.out.println("3)check balanch ");
+            System.out.println("3)check balances ");
             System.out.println("4)my-infos ");
             System.out.println("0)quit ");
             System.out.print(":");
@@ -159,28 +160,41 @@ public class Client {
 
                 //verser
                 case 1:
+                System.out.println(delemiter);
                 transaction(1);
                 break;
                
 
                  case 2 :
+                 System.out.println(delemiter);
                  transaction(2);
                  break;
                
                 case 3:
+                System.out.println(delemiter);
+               
+                if (this.comptes==null) {
+                    System.out.println("this client dont have any accounts");
+                    break;
+                    
+                }
                 System.out.println("your balnaces ");
                 for (Compte compte : comptes) {
+                    if (compte==null) 
+                        continue;else
                     System.out.println("account Number "+compte.getNumeroCompte()+": balance "+compte.getSolde());
                     
                 }
                 break;
                 case 4:
+                System.out.println(delemiter);
                  System.out.println(this);
 
                 break;
                 case 0:
                  break;
                 default:
+                System.out.println(delemiter);
                     System.out.println("not an option!! , try again ");
             }
 
