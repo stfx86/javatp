@@ -78,22 +78,22 @@ public Client[] ajouterMembre(Client []tabClients,String memberType)
      newtb[tabClients.length]=c;
      System.out.println("member "+memberType+"of code  :"+c.getCode()+" has been added succesfully");
 
-    sc.close();
+    // sc.close();
     return newtb;
     
 }
    public  void  ajouterCompte(int clientCode,Client []tb)
        
-        {
+  {
           Scanner sc =new Scanner(System.in);
           float amount;
           Client c=this.rechercheMembre(clientCode, tb );
           if (c==null) {
             System.out.println("no client found with that code )-:");
-            sc.close();return;            
-          } 
+            return;            
+          }
           if (c.getNombreCompte()>=3) {
-            System.out.println("already have 3 acounts (-:") ;sc.close(); return;
+            System.out.println("already have 3 acounts (-:");  return;
           }
           System.out.println("-- Type of account ");
           System.out.println("E) Epargne \nC) Courant");
@@ -108,7 +108,7 @@ public Client[] ajouterMembre(Client []tabClients,String memberType)
           
           } else {
               System.out.println("Invalid account type selected.");
-              sc.close();return;
+              return;
           }
 
         //see if we can add mony to it 
@@ -121,7 +121,7 @@ public Client[] ajouterMembre(Client []tabClients,String memberType)
           amount=sc.nextFloat();
           if (amount<0) {
             System.out.println("invalid input ");
-            sc.close();return;
+            return;
           }
           compte.verser(amount);
           System.out.println(amount+"--has been diposit succesfully to account "+compte.getNumeroCompte());
@@ -130,11 +130,11 @@ public Client[] ajouterMembre(Client []tabClients,String memberType)
          
       } else if (rep != 'N') {
         System.out.println("Invalid account type selected.");
-        sc.close(); return;
+         return;
           
       
       } 
-      sc.close();
+      
       //if the client have no acounts
       if (c.getComptes()==null) {
         c.setNombreCompte(c.getNombreCompte()+1);
@@ -173,9 +173,9 @@ public Client[] ajouterMembre(Client []tabClients,String memberType)
 
 
     
-// System.out.println("something went wrong ");return;
+
           
-          }
+  }
 public void supprimerCompte(int clientCode,Client []tb){
 
   Client c =this.rechercheMembre(clientCode, tb);
@@ -196,7 +196,7 @@ public void supprimerCompte(int clientCode,Client []tb){
         int code=sc.nextInt();
    //checking the input      
         if (code<0) {
-         System.out.println("invalid input [negativ input]" ); return; }
+         System.out.println("invalid input [negativ input]" );sc.close(); return; }
          //removing the wanted account 
 for (int i = 0; i < c.getComptes().length; i++) {
   if (c.getComptes()[i]==null) continue;else 
@@ -207,11 +207,12 @@ for (int i = 0; i < c.getComptes().length; i++) {
  
 }
 if (code!=-1) {
+  sc.close();
   System.out.println("no matching account code was found  "); return;
 }
 System.out.println("account has been deletd seccesfully (-:");
 
-return;
+sc.close();return;
 
 
 
@@ -228,7 +229,7 @@ return;
                 + Arrays.toString(super.getComptes())  + "function = "+ this.function+"]" ;
         }
 
-  public void menuEmploye(String label,Client[] clients)
+  public Client[] menuEmploye(String label,Client[] clients)
   {
     Scanner scanner=new Scanner(System.in);
     int k=1;
@@ -244,19 +245,30 @@ return;
       System.out.println("3)inspect-client ");
       System.out.println("4)add-acount");
       System.out.println("5)remove-acount");
-      System.out.print("0)quit\n:");
+      System.out.print("0)quit\n");
+      if (!scanner.hasNextInt()) { // Validate input is an integer
+        System.out.println(delemiter);
+        System.out.println("Invalid input. Please enter a valid option.");
+        scanner.next(); // Consume invalid input
+        continue;
+    }
+      
       k=scanner.nextInt();
       int code;
-            
+      
           
-
 
       switch (k){
         
         
         case 1:
         System.out.println(delemiter);
-        this.ajouterMembre(clients, "client");
+
+
+
+
+
+        clients=this.ajouterMembre(clients, "client");
         break;
         case 2:
         System.out.println(delemiter);
@@ -294,7 +306,7 @@ return;
 
 
       }
-      scanner.close();
+      
       
 
 
@@ -302,9 +314,10 @@ return;
 
 
     }
+    // scanner.close();
 
 
-    
+    return clients;
   }
 
  

@@ -16,7 +16,11 @@ public class MainClass {
         Employe employe=new Employe();
         String label="--------------:Employer Code "+employe.getCode()+":----------------";
         System.out.println(clients[1].getCode());
-            employe.menuEmploye(label, clients);
+        clients=employe.menuEmploye(label, clients);
+
+
+            // employe.ajouterCompte(0, clients);
+
 
         // clients[2]=null;
         // Client cc=employe.rechercheMembre(clients[3].getCode(), clients);
